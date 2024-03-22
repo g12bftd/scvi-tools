@@ -616,6 +616,7 @@ class BaseModelClass(metaclass=BaseModelMetaClass):
         user_attributes = self._get_user_attributes()
         # only save the public attributes with _ at the very end
         user_attributes = {a[0]: a[1] for a in user_attributes if a[0][-1] == "_"}
+        user_attributes["init_params_"]['kwargs'] = {}
 
         torch.save(
             {
